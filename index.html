@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roswitha Gutbier — Organisation. Vermittlung. KI in der Praxis.</title>
+<meta name="description" content="Roswitha Gutbier — Erfahrung in Organisation, Projektarbeit und Vermittlung, verbunden mit einem klaren Blick auf digitale Themen und KI.">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --rust: #B85C38;
+  --rust-light: #F2E8E2;
+  --rust-mid: #D4835F;
+  --ink: #1C1A18;
+  --ink-soft: #3D3A35;
+  --stone: #8C8880;
+  --paper: #F7F4F0;
+  --white: #FDFCFB;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --nav-h: 68px;
+  --max: 1100px;
+  --pad: 48px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--pad);
+  background: rgba(253,252,251,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(28,26,24,0.07);
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--rust); }
+
+/* HERO */
+#start {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  display: grid;
+  grid-template-columns: 55% 45%;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px var(--pad);
+}
+
+.hero-overline {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-overline::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--rust);
+}
+
+.hero-headline {
+  font-family: var(--serif);
+  font-size: clamp(40px, 4.5vw, 68px);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--rust);
+}
+
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.85;
+  max-width: 480px;
+  margin-bottom: 44px;
+  border-left: 2px solid rgba(184,92,56,0.25);
+  padding-left: 20px;
+}
+
+.hero-sub strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--rust);
+  text-decoration: none;
+  padding: 15px 28px;
+  transition: background 0.2s, transform 0.15s;
+  width: fit-content;
+}
+
+.btn-primary:hover {
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-right::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--white) 0%, transparent 18%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  filter: sepia(6%) contrast(1.04);
+}
+
+/* INTRO BAND */
+.intro-band {
+  background: var(--ink);
+  padding: 60px var(--pad);
+}
+
+.intro-band-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.intro-quote {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--paper);
+  line-height: 1.5;
+}
+
+.intro-detail {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(247,244,240,0.62);
+  line-height: 1.9;
+}
+
+/* GENERIC LAYOUT */
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 88px var(--pad);
+}
+
+.on-paper { background: var(--paper); }
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-family: var(--serif);
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 44px;
+}
+
+.headline em { font-style: italic; color: var(--rust); }
+
+/* ÜBER MICH */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.prose {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.prose strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.infobox {
+  background: var(--paper);
+  padding: 32px;
+}
+
+.infobox-block {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(28,26,24,0.08);
+}
+
+.infobox-block:last-child { border-bottom: none; }
+
+.infobox-block:first-child { padding-top: 0; }
+
+.infobox-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 6px;
+}
+
+.infobox-value {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+/* LEISTUNGEN */
+.leistung {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(28,26,24,0.08);
+  align-items: start;
+}
+
+.leistung:first-child { border-top: 1px solid rgba(28,26,24,0.08); }
+
+.leistung-name {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.3;
+  padding-top: 3px;
+}
+
+.leistung-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.85;
+}
+
+.leistung-text p + p { margin-top: 12px; }
+
+.leistung-text strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* KI */
+.ki-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ki-box {
+  padding: 28px 32px;
+  background: var(--paper);
+}
+
+.ki-box-dark {
+  padding: 28px 32px;
+  background: var(--ink);
+}
+
+.ki-box-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 12px;
+}
+
+.ki-box-list {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 2;
+}
+
+.ki-box-quote {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--paper);
+  line-height: 1.55;
+}
+
+/* STATIONEN */
+.stationen {
+  max-width: 860px;
+}
+
+.station {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 40px;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(28,26,24,0.08);
+}
+
+.station:first-child { border-top: 1px solid rgba(28,26,24,0.08); }
+
+.station-bereich {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+  padding-top: 3px;
+}
+
+.station-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.station-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.8;
+}
+
+/* KONTAKT */
+.kontakt-prose {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.mail-block {
+  margin-top: 36px;
+  padding: 28px 32px;
+  background: var(--rust-light);
+  border-left: 3px solid var(--rust);
+}
+
+.mail-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 8px;
+}
+
+/* Prompt to add real address */
+.mail-placeholder {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--stone);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.field input,
+.field textarea {
+  background: var(--paper);
+  border: 1px solid rgba(28,26,24,0.12);
+  padding: 12px 16px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.field input:focus,
+.field textarea:focus { border-color: var(--rust); }
+
+.field textarea { min-height: 110px; }
+
+.btn-submit {
+  background: var(--rust);
+  color: var(--white);
+  border: none;
+  padding: 14px 28px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: fit-content;
+  border-radius: 0;
+}
+
+.btn-submit:hover { background: var(--ink); }
+
+.form-note {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.7;
+}
+
+.form-note a { color: inherit; }
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  padding: 32px var(--pad);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-name {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(247,244,240,0.65);
+}
+
+.footer-copy {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(247,244,240,0.3);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(247,244,240,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--rust-mid); }
+
+/* MOBILE */
+@media (max-width: 900px) {
+  :root { --pad: 24px; }
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+
+  #start { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { height: 65vw; order: -1; }
+  .hero-right::after { background: linear-gradient(to bottom, transparent 55%, var(--white) 100%); }
+  .hero-left { padding: 40px 24px 64px; }
+
+  .intro-band-inner,
+  .two-col { grid-template-columns: 1fr; gap: 36px; }
+
+  .leistung { grid-template-columns: 1fr; gap: 10px; }
+  .station { grid-template-columns: 1fr; gap: 6px; }
+
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#start" class="nav-logo">Roswitha Gutbier</a>
+  <ul class="nav-links">
+    <li><a href="#ueber-mich">Über mich</a></li>
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#ki">KI in der Praxis</a></li>
+    <li><a href="#hintergrund">Hintergrund</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="start">
+  <div class="hero-left">
+    <p class="hero-overline">Roswitha Gutbier</p>
+    <h1 class="hero-headline">
+      Organisation.<br>
+      Vermittlung.<br>
+      <em>Menschen.</em>
+    </h1>
+    <p class="hero-sub">
+      Ich unterstütze Organisationen, Teams und Einzelpersonen dabei,
+      <strong>Strukturen zu schaffen, Themen zu vermitteln und digitale Werkzeuge wirklich zu nutzen.</strong>
+      Klar, direkt, mit Erfahrung.
+    </p>
+    <a href="#kontakt" class="btn-primary">Kontakt aufnehmen</a>
+  </div>
+  <div class="hero-right">
+    <img src="00939551e352dMjA7d2e6.jpeg" alt="Roswitha Gutbier">
+  </div>
+</section>
+
+<!-- INTRO BAND -->
+<div class="intro-band">
+  <div class="intro-band-inner">
+    <p class="intro-quote">
+      Erfahrung in Organisation und Gesprächsarbeit — kombiniert mit einem täglichen, praktischen Umgang mit KI. Das ist keine Kombination, die man in drei Monaten erwirbt.
+    </p>
+    <p class="intro-detail">
+      Über zwanzig Jahre in Büro, Projektarbeit, Veranstaltungsorganisation, Seelsorge und Kursleitung. Heute mit einem klaren Fokus auf digitale Themen und die verständliche Vermittlung von KI-Werkzeugen. Was mich auszeichnet: Ich halte den Überblick, auch wenn viel gleichzeitig läuft — und ich mache Themen zugänglich, ohne sie zu verwässern.
+    </p>
+  </div>
+</div>
+
+<!-- ÜBER MICH -->
+<div id="ueber-mich">
+  <div class="section">
+    <p class="label">Über mich</p>
+    <h2 class="headline">Was Sie über<br>mich <em>wissen sollten</em></h2>
+    <div class="two-col">
+      <div>
+        <p class="prose">
+          Ich komme aus der Verwaltungs- und Projektarbeit, war lange in der sozialen Begleitung und Kursleitung tätig und nutze KI-Werkzeuge heute täglich — nicht als Experiment, sondern als normalen Teil der Arbeit.
+        </p>
+        <p class="prose">
+          <strong>Was Sie davon haben:</strong> Ich bringe strukturelle Kompetenz und echte Menschennähe zusammen. Ich kann Ablauforganisation aufsetzen und gleichzeitig eine Gruppe durch ein schwieriges Thema führen. Beides gehört für mich zusammen.
+        </p>
+        <p class="prose">
+          Mein Anspruch ist Klarheit. Keine Überversprechen, keine Floskeln. Wenn ich etwas nicht weiß oder nicht kann, sage ich das.
+        </p>
+      </div>
+      <div>
+        <div class="infobox">
+          <div class="infobox-block">
+            <div class="infobox-label">Was mich unterscheidet</div>
+            <div class="infobox-value">Organisationskompetenz, Gesprächsarbeit und praktischer KI-Einsatz in einer Person. Diese Kombination ist nicht selbstverständlich.</div>
+          </div>
+          <div class="infobox-block">
+            <div class="infobox-label">Arbeitsweise</div>
+            <div class="infobox-value">Präsenz und remote, flexibel kombinierbar. Eigenverantwortlich, direkt, verbindlich.</div>
+          </div>
+          <div class="infobox-block">
+            <div class="infobox-label">Erfahrungsbasis</div>
+            <div class="infobox-value">Über 20 Jahre — Verwaltung, Projektarbeit, Seelsorge, Pädagogik, digitale Themen.</div>
+          </div>
+          <div class="infobox-block">
+            <div class="infobox-label">Sprachen</div>
+            <div class="infobox-value">Deutsch (Muttersprache)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LEISTUNGEN -->
+<div id="leistungen" class="on-paper">
+  <div class="section">
+    <p class="label">Leistungen</p>
+    <h2 class="headline">Womit ich<br><em>helfen</em> kann</h2>
+
+    <div class="leistung">
+      <div class="leistung-name">Organisation &amp; Koordination</div>
+      <div class="leistung-text">
+        <p>Abläufe strukturieren, Zuständigkeiten klären, Kommunikation steuern. Ich übernehme organisatorische Verantwortung — in laufenden Projekten, bei Veranstaltungen oder in der Büroorganisation.</p>
+        <p><strong>Was das für Sie bedeutet:</strong> Verlässliche Strukturen, ohne dass Sie jeden Schritt selbst im Blick haben müssen.</p>
+      </div>
+    </div>
+
+    <div class="leistung">
+      <div class="leistung-name">Workshops &amp; Vermittlung</div>
+      <div class="leistung-text">
+        <p>Ich konzipiere und leite Workshops, in denen Themen wirklich ankommen — kein Frontalvortrag, sondern klare Struktur, echte Beteiligung, direkter Transfer.</p>
+        <p><strong>Themen:</strong> KI im Alltag, strukturiertes Arbeiten, Gesprächsführung, Entspannungsverfahren — und auf Anfrage maßgeschneidert.</p>
+      </div>
+    </div>
+
+    <div class="leistung">
+      <div class="leistung-name">Gesprächs&shy;begleitung</div>
+      <div class="leistung-text">
+        <p>Ich begleite Menschen in Gesprächsprozessen — wertschätzend, direkt, ohne Bewertung. Einsetzbar in Teams, im Ehrenamt, in sozialen Einrichtungen und überall dort, wo schwierige Gespräche geführt werden müssen.</p>
+        <p><strong>Was das für Sie bedeutet:</strong> Jemand, der zuhört, einordnet und begleitet — ohne das Ziel aus den Augen zu verlieren.</p>
+      </div>
+    </div>
+
+    <div class="leistung">
+      <div class="leistung-name">KI &amp; Digitale Themen</div>
+      <div class="leistung-text">
+        <p>Ich mache KI-Werkzeuge für Menschen nutzbar, die sich nicht als technikaffin verstehen. Praxisnah, ohne Fachjargon, mit ehrlicher Einschätzung dessen, was KI kann — und was nicht.</p>
+        <p><strong>Was das für Sie bedeutet:</strong> Keine Überforderung, keine leeren Versprechen. Konkrete Schritte, die im Arbeitsalltag funktionieren.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- KI IN DER PRAXIS -->
+<div id="ki">
+  <div class="section">
+    <p class="label">KI in der Praxis</p>
+    <h2 class="headline">Werkzeug,<br><em>kein Selbstzweck</em></h2>
+    <div class="two-col">
+      <div>
+        <p class="prose">
+          KI ist für mich kein Trend und keine Zukunftsvision. Ich nutze KI-Werkzeuge täglich — für Texte, Strukturierung, Recherche, Workshopvorbereitung. Das bedeutet: Ich kenne den Unterschied zwischen dem, was versprochen wird, und dem, was tatsächlich funktioniert.
+        </p>
+        <p class="prose">
+          <strong>Warum das für Sie relevant ist:</strong> Wenn ich über KI spreche oder berate, tue ich das auf Basis eigener, täglicher Nutzung — nicht auf Basis von Präsentationen. Das macht den Unterschied.
+        </p>
+        <p class="prose">
+          Ich biete Einführungen, Workshops und Begleitung für Einzelpersonen, Teams und Organisationen an — ohne Vorwissen, ohne Technikaffinität vorauszusetzen.
+        </p>
+      </div>
+      <div class="ki-right">
+        <div class="ki-box">
+          <p class="ki-box-label">Was ich anbiete</p>
+          <p class="ki-box-list">
+            Einführungsworkshops ohne Vorwissen<br>
+            Begleitung bei der Alltagsintegration<br>
+            Ehrliche Einordnung: Was bringt KI wirklich?<br>
+            Individuelle Beratung auf Anfrage
+          </p>
+        </div>
+        <div class="ki-box-dark">
+          <p class="ki-box-quote">
+            „KI macht keine Arbeit überflüssig. Aber sie macht manche Arbeit leichter — wenn man weiß, wie."
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BERUFLICHER HINTERGRUND -->
+<div id="hintergrund" class="on-paper">
+  <div class="section">
+    <p class="label">Beruflicher Hintergrund</p>
+    <h2 class="headline">Was mich<br><em>geprägt</em> hat</h2>
+    <div class="stationen">
+
+      <div class="station">
+        <div class="station-bereich">Organisation</div>
+        <div>
+          <div class="station-name">Büro, Verwaltung und Koordination</div>
+          <p class="station-text">Langjährige Tätigkeit in Büro und Verwaltung. Zuständig für Abläufe, Kommunikation, Koordination. In kleinen Strukturen wie in größeren Organisationen. Diese Basis zieht sich durch alles andere.</p>
+        </div>
+      </div>
+
+      <div class="station">
+        <div class="station-bereich">Projekt &amp; Event</div>
+        <div>
+          <div class="station-name">Promotionprojekte und Veranstaltungen</div>
+          <p class="station-text">Planung und Durchführung von Veranstaltungen und Promotionprojekten. Direktkontakt mit Menschen, operative Verantwortung, Schnittstellenarbeit. Erfahrung darin, Ideen zuverlässig in Praxis zu übersetzen.</p>
+        </div>
+      </div>
+
+      <div class="station">
+        <div class="station-bereich">Seelsorge</div>
+        <div>
+          <div class="station-name">Seelsorgerliche Gesprächsarbeit</div>
+          <p class="station-text">Ausbildung und Praxis in der Seelsorge. Begleitung von Menschen in herausfordernden Lebenssituationen. Die Haltung, die ich dort entwickelt habe — zuhören, nicht bewerten, aushalten — trägt bis heute in allen anderen Bereichen.</p>
+        </div>
+      </div>
+
+      <div class="station">
+        <div class="station-bereich">Pädagogik</div>
+        <div>
+          <div class="station-name">Entspannungspädagogik und Kursleitung</div>
+          <p class="station-text">Ausgebildete Kursleitung im Bereich Entspannungsverfahren. Kurse für unterschiedliche Zielgruppen — auch für Menschen, die einem solchen Angebot zunächst skeptisch gegenüberstanden.</p>
+        </div>
+      </div>
+
+      <div class="station">
+        <div class="station-bereich">Digital &amp; KI</div>
+        <div>
+          <div class="station-name">KI-Werkzeuge im täglichen Einsatz</div>
+          <p class="station-text">Aktueller Schwerpunkt: praktischer Umgang mit KI im Arbeitsalltag. Intensive Eigennutzung als Basis, Weitergabe ohne Fachjargon als Ziel — für Menschen, die KI nicht als Technologiethema, sondern als Arbeitsmittel verstehen wollen.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- KONTAKT -->
+<div id="kontakt">
+  <div class="section">
+    <p class="label">Kontakt</p>
+    <h2 class="headline">Neugierig<br><em>geworden?</em></h2>
+    <div class="two-col">
+      <div>
+        <p class="kontakt-prose">
+          Ob konkrete Anfrage, ein Projekt, das Sie beschäftigt, oder einfach eine erste Einschätzung — schreiben Sie mir. Ich antworte in der Regel am selben oder nächsten Werktag.
+        </p>
+        <p class="kontakt-prose">
+          Keine langen Vorformulierungen nötig. Ein paar Sätze reichen.
+        </p>
+        <div class="mail-block">
+          <div class="mail-label">Direkt per E-Mail</div>
+          <!--
+            TODO: Echte E-Mail-Adresse eintragen.
+            Beispiel: <a href="mailto:roswitha@gutbier.de">roswitha@gutbier.de</a>
+          -->
+          <a href="mailto:Roswitha-Gutbier@web.de" class="mail-placeholder">Roswitha-Gutbier@web.de</a>
+        </div>
+      </div>
+      <div>
+        <!--
+          TODO: Formspree einrichten unter formspree.io (kostenlos, kein Backend nötig).
+          Dann "IHRE-FORMSPREE-ID" unten ersetzen durch Ihre ID, z.B. "xvgpqznk".
+        -->
+          <p class="note">Kontaktformular folgt bei Bedarf. Schreiben Sie mir gern direkt per E-Mail.</p>
+</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Roswitha Gutbier</span>
+  <span class="footer-copy">&copy; 2026</span>
+  <div class="footer-links">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</footer>
+
+</body>
+</html>
